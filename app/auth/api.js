@@ -29,22 +29,6 @@ const signIn = function (formData) {
 	})
 }
 
-// formData will be our passwords object w/ old and new passwords
-const changePassword = function (formData) {
-	// make a request to PATCH (change-password)
-	return $.ajax({
-		url: `${config.apiUrl}/change-password`,
-		method: 'PATCH',
-		// make sure to send the formData along as the body of our request
-		// formData comes from curl-scripts
-		data: formData,
-		// add our authorization header, so the api can use the token to know who is trying to change the password
-		headers: {
-			Authorization: 'Bearer ' + store.user.token,
-		},
-	})
-}
-
 const signOut = function () {
 	// make a request to DELETE (sign-out)
 	return $.ajax({
@@ -53,13 +37,25 @@ const signOut = function () {
 		// add our authorization header, so the api can use the token to know who is trying to change the password
 		headers: {
 			Authorization: 'Bearer ' + store.user.token,
-		},
+		}
+	})
+}
+
+const newGame = function () {
+	// make a request to POST(create a game)
+	return $.ajax({
+		url: `${config.apiUrl}/games`,
+		method: 'POST',
+		// add our authorization header, so the api can use the token to know who is trying to create new game
+		headers: {
+			Authorization: 'Bearer ' + store.user.token,
+		}
 	})
 }
 
 module.exports = {
 	signUp,
 	signIn,
-	changePassword,
 	signOut,
+	newGame
 }

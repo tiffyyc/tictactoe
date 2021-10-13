@@ -11,50 +11,68 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
+    <body >
       <h1>Tic Tac Toe</h1>
-
+      
+<!-- landing visual: register/sign in-->
       <section id="before-sign-in">
-        <form id="sign-up" class="border">
+        <!-- landing visual: register-->
+        <form id="sign-up" class="d-flex flex-column">
           <fieldset>
             <legend>Sign up</legend>
             <input type="email" name="credentials[email]" placeholder="Email" required>
             <input type="password" name="credentials[password]" placeholder="Password" required>
             <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" required>
       
-            <button class="btn btn-secondary">submit</button>
+            <button class="btn btn-secondary">Submit</button>
           </fieldset>
         </form>
         <hr>
-      
-        <form id="sign-in" class="border">
+      <!-- landing visual: sign-in-->
+        <form id="sign-in">
           <fieldset>
-            <legend>Sign in</legend>
+            <legend>Login</legend>
             <input type="email" name="credentials[email]" placeholder="Email" required>
             <input type="password" name="credentials[password]" placeholder="Password" required>
       
-            <button class="btn btn-secondary">submit</button>
+            <button class="btn btn-secondary">Submit</button>
           </fieldset>
         </form>
         <hr>
       </section>
       
       <!-- we only want this section to be visible after we sign in.-->
+  
+        <button id="new-game" class="btn btn-warning mx-auto">New Game</button>
+
       <!-- it should not be display by default-->
       <section id="after-sign-in">
-        <form id="change-password" class="border">
-          <fieldset>
-            <legend>Change Password</legend>
         
-            <input type="password" name="passwords[old]" placeholder="Old Password" required>
-            <input type="password" name="passwords[new]" placeholder="New Password" required>
-        
-            <button class="btn btn-secondary">submit</button>
-          </fieldset>
-        </form>
+        <button id="sign-out" class="btn btn-primary">Sign out</button>
         
         <hr>
-        <button id="sign-out" class="btn btn-primary">sign out</button>
+      
+      <h4>Current Player</h4>
+      <!-- create 3x3 gameboard grid -->
+          <div class="game btn mx-auto">
+              <div class="row">
+                <div class="col-4 box" id="square-1"></div>
+                <div class="col-4 box" id="square-2"></div>
+                <div class="col-4 box" id="square-3"></div>
+              </div>
+              <div class="row">
+                <div class="col-4 box" id="square-4"></div>
+                <div class="col-4 box" id="square-5"></div>
+                <div class="col-4 box" id="square-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-4 box" id="square-7"></div>
+                <div class="col-4 box" id="square-8"></div>
+                <div class="col-4 box" id="square-9"></div>
+              </div>
+
+              <br>
+          </div>
       
       </section>
       
@@ -63,6 +81,8 @@
         <div id="error-message"></div>
         <div id="movie-display"></div>
       </section>
+
+    
 
     </body>
 </html>

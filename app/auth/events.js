@@ -43,24 +43,6 @@ const onSignIn = function (event) {
 		.catch(ui.signInFailure)
 }
 
-const onChangePassword = function (event) {
-	// prevent the default action of refreshing the page
-	event.preventDefault()
-
-	// event.target is the form that cause the 'submit' event
-	const form = event.target
-	// get the data from our form element
-	const formData = getFormFields(form)
-
-	// make a PATCH (change-password) request, pass it t0 old and new passwords
-	api
-		.changePassword(formData)
-		// if our sign up request is successful, run the changePasswordSuccess function
-		.then(ui.changePasswordSuccess)
-		// otherwise, signUpFailure function will run if an error occurred
-		.catch(ui.changePasswordFailure)
-}
-
 const onSignOut = function () {
 	// make a PATCH (change-password) request, pass it t0 old and new passwords
 	api
@@ -71,10 +53,18 @@ const onSignOut = function () {
 		.catch(ui.signOutFailure)
 }
 
+const onNewGame = function () {
+	// make a POST (crate a new game) request 
+	api
+		.newGame()
+		// if our sign up request is successful, run the changePasswordSuccess function
+		.then(ui.newGameSuccess)
+}
+
 // export event handler functions, so we can use them in app.js
 module.exports = {
 	onSignUp,
 	onSignIn,
-	onChangePassword,
 	onSignOut,
+	onNewGame,
 }

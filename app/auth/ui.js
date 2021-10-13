@@ -2,13 +2,16 @@
 // require the store object, we will use it to share data between different files
 const store = require('../store')
 
+$('#new-game').hide()
+$('#after-sign-in').hide()
+
 const signUpSuccess = function (responseData) {
 	// tell the user signup is successful
-	$('#movie-display').text('you have signed up! woohoo!')
+	$('#movie-display').text('You have signed up! Woohoo! Please sign in to start.')
 
 	// remove existing classes and add a bootstrap class - text-success
 	$('#movie-display').removeClass()
-	$('#movie-display').addClass('text-success')
+	$('#movie-display').addClass('text-white')
 
 	// clear(reset) all of the forms
 	$('form').trigger('reset')
@@ -38,15 +41,18 @@ const signInSuccess = function (responseData) {
 
 	// remove existing classes and add a bootstrap class - text-success
 	$('#movie-display').removeClass()
-	$('#movie-display').addClass('text-success')
+	$('#movie-display').addClass('text-white')
 
 	// clear(reset) all of the forms
 	$('form').trigger('reset')
 
 	// after sign in, hide the section with the id 'before-sign-in'
 	$('#before-sign-in').hide()
-	// after we sign in, show the section with the id' after-sign-in'
-	$('#after-sign-in').show()
+	// after sign in, show the 'new-game' button
+	$('#new-game').show()
+	// after we sign in, hide the grid until 'new game' button is clicked
+	$('#after-sign-in').hide()
+
 
 	console.log('responseData is', responseData)
 }
@@ -63,39 +69,13 @@ const signInFailure = function (error) {
 	console.error('error is', error)
 }
 
-const changePasswordSuccess = function (responseData) {
-	// tell the user change of password is successful
-	$('#movie-display').text('you have changed your password.')
-
-	// remove existing classes and add a bootstrap class - text-success
-	$('#movie-display').removeClass()
-	$('#movie-display').addClass('text-success')
-
-	// clear(reset) all of the forms
-	$('form').trigger('reset')
-
-	console.log('responseData is', responseData)
-}
-
-const changePasswordFailure = function (error) {
-	// tell the user signup failed
-	$('#error-message').text('Failed to change password, please try again.')
-
-	// remove existing classes and add a bootstrap class
-	$('#error-message').removeClass()
-	$('#error-message').addClass('text-danger')
-
-	// print the error
-	console.error('error is', error)
-}
-
 const signOutSuccess = function (id) {
 	// tell the user change of password is successful
 	$('#movie-display').text('see you next time!')
 
 	// remove existing classes and add a bootstrap class - text-success
 	$('#movie-display').removeClass()
-	$('#movie-display').addClass('text-primary')
+	$('#movie-display').addClass('text-white')
 
 	$('form').trigger('reset')
 
@@ -115,13 +95,26 @@ const signOutFailure = function (error) {
 	console.error('error is', error)
 }
 
+const newGameSuccess = function (id) {
+
+	// show the grid
+	$('#after-sign-in').show()
+}
+
+
+// when the game is over, reset the game by clicking the 'new game' button
+const gameOver = function () {
+
+	// clear(reset) all of the inputs
+	$('.new-game').trigger('reset')
+}
+
 module.exports = {
 	signUpSuccess,
 	signUpFailure,
 	signInSuccess,
     signInFailure,
-	changePasswordSuccess,
-    changePasswordFailure,
 	signOutSuccess,
-    signOutFailure
+    signOutFailure,
+	newGameSuccess,
 }
