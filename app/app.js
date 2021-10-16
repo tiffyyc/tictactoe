@@ -17,46 +17,56 @@ $(() => {
 
 // game logic starts here! i can do it!
 
-// add a click handler for when a space on the game board is clicked
-// check if the space in the board is empty
-if ('.box' === null) {
-	// click to display 
-	(this.on('click'), function () {
-		this.text('O')
-	} )
-}
+	// game variables
+	// start the player off as X
+	let currentPlayer = "X"
 
-//alternate player on click
-let playerOne = "X"
-let playerTwo = "O"
-let space = [ ]
+	// set an empty string to indicate all boxes are empty from start
+	let gameCellArray = ['', '', '', '', '', '', '', '', '']
+	// set a boolean to check if game is active or over
+	let gameActive = true
 
+	//messages displayed during the game
+	const winnerMessage = () => `Player ${currentPlayer} wins!`
+	const tieGame = () => `It's a draw!`
+	const alternateTurn = () => `It's ${currentPlayer}'s turn'`
 
-// start the player off as X
-let currentPlayer = 'X'
+	// alternate player display on page (above gameboard)
+	function alternatePlayer() {
+		// check if the current player is X
+		if (currentPlayer === 'X') {
+			// flip to O's turn
+			currentPlayer = 'O'
+		} else {
+			// switch back to X if it is O's turn
+			currentPlayer = 'X'
+		}
+		//print on the page
+		$('.player').innerHTML = alternateTurn()
+	}
 
-// check if the current player is X
-if(currentPlayer === 'X') {
-  // flip to O's turn next time
-  currentPlayer = 'O'
-} else {
-  // switch back to X if it is O's turn
-  currentPlayer = 'X'
-}
+	//when clicking on one of the boxes, show the symbol of the current player
+	function onBoxClicked(clickedBox, boxIndex) {
+		//if the empty gameCellArray contains data-cell-index of the box, the clicked box will print x or o
+		gameCellArray[boxIndex] = currentPlayer
+		// calling the UI to print x or o
+		clickedBox.innerHTML = currentPlayer
+	}
 
-//player clicking on square to add their symbols
-// $('#square-1').on('click', function (){
-	// if (currentPlayer === 'X') {
-		// $('#square-1').text('O')
-	// }  else {
-		// $('#square-1').text('X')
-	// } 
-// })
-
-// document.getElementById('#square-1').innerHTML = 'X'
-// } else {
-// document.getElementById('#square-1').innerHTML = 'O'
-
-let winner = [
-	
-]
+	// event listener
+	// click on each box
+	$('.box').on('click', (event) => {
+		// set variable 'clickedBox' as the box you are going to click
+		const clickedBox = event.target
+		// set variable 'boxIndex' to get the index of the boxes in HTML
+		const boxIndex = parseInt(
+			clickedBox.getAttribute('data-cell-index')
+			)
+			/* // if the box is filled or the game ended
+			if (gameCellArray[boxIndex] !== '' || !gameActive) {
+				// player cannot click anymore
+			
+			} else */
+			// otherwise, player can keep playing the game
+			onBoxClicked(clickedBox, boxIndex)
+	})

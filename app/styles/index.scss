@@ -14,7 +14,7 @@ body {
   padding:5% 10%;
 }
 
-h1, h4 {
+h1 {
     text-align: center;
 }
 
@@ -30,23 +30,56 @@ h1, h4 {
   align-items: center;
 }
 
-.game { 
+.players {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.gameboard .result { 
   padding-top: 10%; 
   display: block;
   justify-content: center;
   align-items: center;
+  cursor:pointer;
 }
 
 .box {
   align-items: center;
-  background-color: #000;
-  border: 3px solid white;
-  color: #fff;
+  background-color: #fff;
+  color: #ffc40a;
   display: flex;
-  height: 200px;
-  width:200px;
+  height: 120px;
+  width:120px;
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 100px;
   justify-content: center;
+  margin:2px;
+  border-radius:5px;
+}
+
+.box:hover {
+  background-color: rgba(255, 255, 255, 0.9) ;
+}
+
+.result-box {
+  background-color:#fff;
+  color:#000;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 300px;
+  width: 100%
+}
+
+.result-box .winner {
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+#replay {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }

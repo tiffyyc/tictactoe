@@ -59,12 +59,16 @@ const onNewGame = function () {
 		.newGame()
 		// if our sign up request is successful, run the changePasswordSuccess function
 		.then(ui.newGameSuccess)
+		.catch()
 }
+
+
+
 
 // export event handler functions, so we can use them in app.js
 module.exports = {
 	onSignUp,
 	onSignIn,
 	onSignOut,
-	onNewGame,
+	onNewGame
 }

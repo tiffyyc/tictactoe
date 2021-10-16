@@ -3,15 +3,17 @@
 const store = require('../store')
 
 $('#new-game').hide()
-$('#after-sign-in').hide()
+//remember to hide!!!!!!! upon completion
+$('#after-sign-in').show()
+$('.result-box').hide()
 
 const signUpSuccess = function (responseData) {
 	// tell the user signup is successful
-	$('#movie-display').text('You have signed up! Woohoo! Please sign in to start.')
+	$('#game-display').text('You have signed up! Woohoo! Please sign in to start.')
 
 	// remove existing classes and add a bootstrap class - text-success
-	$('#movie-display').removeClass()
-	$('#movie-display').addClass('text-white')
+	$('#game-display').removeClass()
+	$('#game-display').addClass('text-white')
 
 	// clear(reset) all of the forms
 	$('form').trigger('reset')
@@ -37,11 +39,16 @@ const signInSuccess = function (responseData) {
 	store.user = responseData.user
 	console.log('store is', store)
 	// tell the user signup is successful
-	$('#movie-display').text('welcome back!')
+	$('#game-display').text('welcome back!')
 
 	// remove existing classes and add a bootstrap class - text-success
-	$('#movie-display').removeClass()
-	$('#movie-display').addClass('text-white')
+	$('#game-display').removeClass()
+	$('#game-display').addClass('text-white')
+
+	// set time to disappear
+	setTimeout(() => {
+		$('#game-display').text('')
+	}, 1000)
 
 	// clear(reset) all of the forms
 	$('form').trigger('reset')
@@ -52,7 +59,6 @@ const signInSuccess = function (responseData) {
 	$('#new-game').show()
 	// after we sign in, hide the grid until 'new game' button is clicked
 	$('#after-sign-in').hide()
-
 
 	console.log('responseData is', responseData)
 }
@@ -71,11 +77,11 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function (id) {
 	// tell the user change of password is successful
-	$('#movie-display').text('see you next time!')
+	$('#game-display').text('see you next time!')
 
 	// remove existing classes and add a bootstrap class - text-success
-	$('#movie-display').removeClass()
-	$('#movie-display').addClass('text-white')
+	$('#game-display').removeClass()
+	$('#game-display').addClass('text-white')
 
 	$('form').trigger('reset')
 
@@ -95,11 +101,16 @@ const signOutFailure = function (error) {
 	console.error('error is', error)
 }
 
-const newGameSuccess = function (id) {
+const newGameSuccess = function (responseData) {
+
+	store.game = responseData.game
+	console.log('responseData is', responseData)
 
 	// show the grid
 	$('#after-sign-in').show()
 }
+
+
 
 
 // when the game is over, reset the game by clicking the 'new game' button

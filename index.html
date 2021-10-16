@@ -24,7 +24,7 @@
             <input type="password" name="credentials[password]" placeholder="Password" required>
             <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" required>
       
-            <button class="btn btn-secondary">Submit</button>
+            <button class="btn btn-secondary"role="button" aria-pressed="true"> Submit </button>
           </fieldset>
         </form>
         <hr>
@@ -35,7 +35,7 @@
             <input type="email" name="credentials[email]" placeholder="Email" required>
             <input type="password" name="credentials[password]" placeholder="Password" required>
       
-            <button class="btn btn-secondary">Submit</button>
+            <button class="btn btn-secondary" role="button" aria-pressed="true">Submit</button>
           </fieldset>
         </form>
         <hr>
@@ -51,24 +51,24 @@
         <button id="sign-out" class="btn btn-primary">Sign out</button>
         
         <hr>
-      
-      <h4>Current Player</h4>
+      <!--player message-->
+      <div class="players"></div>
       <!-- create 3x3 gameboard grid -->
-          <div class="game btn mx-auto">
+          <div class="gameboard">
               <div class="row">
-                <div class="col-4 box" id="square-1"></div>
-                <div class="col-4 box" id="square-2"></div>
-                <div class="col-4 box" id="square-3"></div>
+                <div class="col-4 box" data-cell-index="0"></div>
+                <div class="col-4 box" data-cell-index="1"></div>
+                <div class="col-4 box" data-cell-index="2"></div>
               </div>
               <div class="row">
-                <div class="col-4 box" id="square-4"></div>
-                <div class="col-4 box" id="square-5"></div>
-                <div class="col-4 box" id="square-6"></div>
+                <div class="col-4 box" data-cell-index="3"></div>
+                <div class="col-4 box" data-cell-index="4"></div>
+                <div class="col-4 box" data-cell-index="5"></div>
               </div>
               <div class="row">
-                <div class="col-4 box" id="square-7"></div>
-                <div class="col-4 box" id="square-8"></div>
-                <div class="col-4 box" id="square-9"></div>
+                <div class="col-4 box" data-cell-index="6"></div>
+                <div class="col-4 box" data-cell-index="7"></div>
+                <div class="col-4 box" data-cell-index="8"></div>
               </div>
 
               <br>
@@ -76,10 +76,16 @@
       
       </section>
       
+        <!-- result pop-up-->
+          <div class="result-box">
+            <div class="winner">Player X wins!</div>
+            <button id="replay" class="btn btn-warning">Replay</button>
+          </div>
+
       <!-- create a section for our user feedback -->
       <section>
         <div id="error-message"></div>
-        <div id="movie-display"></div>
+        <div id="game-display"></div>
       </section>
 
     
