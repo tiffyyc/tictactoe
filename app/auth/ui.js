@@ -4,8 +4,8 @@ const store = require('../store')
 
 $('#new-game').hide()
 //remember to hide!!!!!!! upon completion
-$('#after-sign-in').show()
-$('.result-box').hide()
+$('#after-sign-in').hide()
+$('#replay').hide()
 
 const signUpSuccess = function (responseData) {
 	// tell the user signup is successful
@@ -82,10 +82,17 @@ const signOutSuccess = function (id) {
 	// remove existing classes and add a bootstrap class - text-success
 	$('#game-display').removeClass()
 	$('#game-display').addClass('text-white')
+	
+	// set time to disappear
+	setTimeout(() => {
+		$('#game-display').text('')
+	}, 1000)
 
 	$('form').trigger('reset')
 
 	$('#after-sign-in').hide()
+	$('#replay').hide()
+	$('#new-game').hide()
 	$('#before-sign-in').show()
 }
 
@@ -110,15 +117,6 @@ const newGameSuccess = function (responseData) {
 	$('#after-sign-in').show()
 }
 
-
-
-
-// when the game is over, reset the game by clicking the 'new game' button
-const gameOver = function () {
-
-	// clear(reset) all of the inputs
-	$('.new-game').trigger('reset')
-}
 
 module.exports = {
 	signUpSuccess,

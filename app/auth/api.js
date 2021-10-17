@@ -41,15 +41,16 @@ const signOut = function () {
 	})
 }
 
-const newGame = function () {
+const newGame = function (formData) {
 	// make a request to POST(create a game)
 	return $.ajax({
 		url: `${config.apiUrl}/games`,
 		method: 'POST',
 		// add our authorization header, so the api can use the token to know who is trying to create new game
 		headers: {
-			Authorization: 'Bearer ' + store.user.token,
-		}
+			Authorization: 'Bearer ' + store.user.token
+		},
+		data:{}
 	})
 }
 
