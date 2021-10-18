@@ -6,6 +6,7 @@ $('#new-game').hide()
 //remember to hide!!!!!!! upon completion
 $('#after-sign-in').hide()
 $('#replay').hide()
+$('#sign-out').hide()
 
 const signUpSuccess = function (responseData) {
 	// tell the user signup is successful
@@ -29,6 +30,11 @@ const signUpFailure = function (error) {
 	$('#error-message').removeClass()
 	$('#error-message').addClass('text-danger')
 
+	// set time to disappear text after 1 sec
+	setTimeout(() => {
+		$('#error-message').text('')
+	}, 1000)
+
 	// print the error
 	console.error('error is', error)
 }
@@ -45,7 +51,7 @@ const signInSuccess = function (responseData) {
 	$('#game-display').removeClass()
 	$('#game-display').addClass('text-white')
 
-	// set time to disappear
+	// set time to disappear text after 1 sec
 	setTimeout(() => {
 		$('#game-display').text('')
 	}, 1000)
@@ -59,6 +65,7 @@ const signInSuccess = function (responseData) {
 	$('#new-game').show()
 	// after we sign in, hide the grid until 'new game' button is clicked
 	$('#after-sign-in').hide()
+	$('#sign-out').show()
 
 	console.log('responseData is', responseData)
 }
@@ -70,6 +77,11 @@ const signInFailure = function (error) {
 	// remove existing classes and add a bootstrap class
 	$('#error-message').removeClass()
 	$('#error-message').addClass('text-danger')
+
+	// set time to disappear text after 1 sec
+	setTimeout(() => {
+		$('#error-message').text('')
+	}, 1000)
 
 	// print the error
 	console.error('error is', error)
@@ -92,6 +104,7 @@ const signOutSuccess = function (id) {
 
 	$('#after-sign-in').hide()
 	$('#replay').hide()
+	$('#sign-out').hide()
 	$('#new-game').hide()
 	$('#before-sign-in').show()
 }

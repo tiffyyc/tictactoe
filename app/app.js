@@ -64,7 +64,7 @@ $(() => {
 			clickedBox.getAttribute('data-cell-index')
 			)
 				// if the box is filled or the game is not over
-				if (gameCellArray[boxIndex] === boxIndex || gameActive) {
+				if (gameCellArray[boxIndex] === '' || !gameActive) {
 					onBoxClicked(clickedBox, boxIndex)
 					checkWinner()
 					if(gameActive){
