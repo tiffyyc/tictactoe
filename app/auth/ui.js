@@ -115,6 +115,7 @@ const newGameSuccess = function (responseData) {
 
 	// show the grid
 	$('#after-sign-in').show()
+	$('#new-game').show()
 }
 
 

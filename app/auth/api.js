@@ -36,12 +36,13 @@ const signOut = function () {
 		method: 'DELETE',
 		// add our authorization header, so the api can use the token to know who is trying to change the password
 		headers: {
-			Authorization: 'Bearer ' + store.user.token,
+			Authorization: 'Bearer ' + store.user.token
 		}
 	})
 }
 
-const newGame = function (formData) {
+const newGame = function () {
+	console.log('start new game')
 	// make a request to POST(create a game)
 	return $.ajax({
 		url: `${config.apiUrl}/games`,

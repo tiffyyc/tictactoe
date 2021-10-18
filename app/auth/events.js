@@ -53,10 +53,11 @@ const onSignOut = function () {
 		.catch(ui.signOutFailure)
 }
 
-const onNewGame = function (event) {
+const onNewGame = () => {
 	// prevent the default action of refreshing the page
-	event.preventDefault()
-	// make a POST (crate a new game) request
+	// event.preventDefault()
+
+	// make a POST (create a new game) request
 	api
 		.newGame()
 		// if our sign up request is successful, run the changePasswordSuccess function

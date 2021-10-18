@@ -13,7 +13,7 @@ $(() => {
 	$('#sign-out').on('click', authEvent.onSignOut)
 	$('#new-game').on('click', authEvent.onNewGame)
 	$('.box').on('click', boxClicked)
-	$('#replay').on('click', authEvent.onNewGame)
+	$('#replay').on('click', replayGame)
 })
 
 // game logic starts here! i can do it!
@@ -80,6 +80,7 @@ $(() => {
 					// player cannot click anymore
 					$('.players').text(tieGame())
 					$('#replay').show()
+					$('#new-game').hide()
 				}
 	}
 
@@ -135,3 +136,12 @@ $(() => {
 				 }
 				 
 		}
+
+		//reset game to beginning state
+function replayGame () {
+	gameActive = true
+	currentPlayer = 'X'
+	gameCellArray = ['', '', '', '', '', '', '', '', '']
+	$('.box').html('')
+ console.log('restart game')
+}
