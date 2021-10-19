@@ -20,11 +20,24 @@
         <form id="sign-up" class="d-flex flex-column">
           <fieldset>
             <legend>Sign up</legend>
-            <input type="email" name="credentials[email]" placeholder="Email" required>
-            <input type="password" name="credentials[password]" placeholder="Password" required>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" required>
-      
-            <button class="btn btn-secondary"role="button" aria-pressed="true"> Submit </button>
+            <div class="row-1">
+              <div class="col">
+                  <input type="email" name="credentials[email]" placeholder="Email" required>
+              </div>
+            </div>
+            <div class="row-1">
+              <div class="col">
+                  <input type="password" name="credentials[password]" placeholder="Password" required>
+              </div>
+            </div>
+            <div class="row-1">
+              <div class="col">
+                   <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmation" required>
+              </div>
+            </div>
+            <div class="submit">
+              <button class="btn btn-secondary"role="button" aria-pressed="true"> Submit </button>
+            </div>
           </fieldset>
         </form>
         <hr>
@@ -32,10 +45,19 @@
         <form id="sign-in">
           <fieldset>
             <legend>Login</legend>
-            <input type="email" name="credentials[email]" placeholder="Email" required>
-            <input type="password" name="credentials[password]" placeholder="Password" required>
-      
-            <button class="btn btn-secondary" role="button" aria-pressed="true">Submit</button>
+                <div class="row-1">
+                    <div class="col">
+                      <input type="email" name="credentials[email]" placeholder="Email" required>
+                    </div>
+                 </div>
+               <div class="row-1">
+                    <div class="col">
+                      <input type="password" name="credentials[password]" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="submit">
+                  <button class="btn btn-secondary" role="button" aria-pressed="true">Submit</button>
+                </div>
           </fieldset>
         </form>
         <hr>
