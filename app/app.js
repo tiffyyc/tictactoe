@@ -47,11 +47,15 @@ $(() => {
 	}
 
 	//when clicking on one of the boxes, show the symbol of the current player
-	function onBoxClicked(clickedBox, boxIndex) {
-		//if the empty gameCellArray contains data-cell-index of the box, the clicked box will print x or o
+	function onBoxClick(clickedBox, boxIndex) {
+		// only if the box is empty,
+		if (gameCellArray[boxIndex] === '') {
+		//the clicked box will print x or o
 		gameCellArray[boxIndex] = currentPlayer
 		// calling the UI to print x or o
 		clickedBox.innerHTML = currentPlayer
+
+		}
 	} 
 
 	// event listener
@@ -63,15 +67,23 @@ $(() => {
 		const boxIndex = parseInt(
 			clickedBox.getAttribute('data-cell-index')
 			)
-				// if the box is filled or the game is not over
-				if (gameCellArray[boxIndex] === boxIndex || gameActive) {
-					onBoxClicked(clickedBox, boxIndex)
-					checkWinner()
-					if(gameActive){
-						alternatePlayer()
-					}
+			
+			// if game is over or boxIndex has played, ignore the click
+			if (gameCellArray[boxIndex] !== '' || !gameActive) {
+				console.log('i am occupied')
+				return
+			}
+
+			// if the box is empty or the game is active
+			if (boxIndex === '' || gameActive) {
+				// player can clicked on the box
+				onBoxClick(clickedBox, boxIndex)
+				checkWinner()
+				if(gameActive){
+					alternatePlayer()
 				}
-			console.log('player clicked')
+			}
+		console.log('player clicked')
 
 				// when all cell are clicked, player cannot click anymore
 				// game is tied
@@ -143,5 +155,7 @@ function replayGame () {
 	currentPlayer = 'X'
 	gameCellArray = ['', '', '', '', '', '', '', '', '']
 	$('.box').html('')
+	$('.players').html('')
+	
  console.log('restart game')
 }
