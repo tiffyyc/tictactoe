@@ -31,8 +31,5 @@ Whichever player positions three of their symbols either horizontally, verticall
 
 ## Wireframes
 
-![alt text][wireframe-login]
-[wireframe-login]: https://imgur.com/G11JZKT "wireframe-login"
-
-![alt text][wireframe-game]
-[wireframe-game]: https://imgur.com/JTUIZAR "wireframe-game"
+![tictactoe-login](https://user-images.githubusercontent.com/89332248/138207534-b16aa5ba-0385-4e53-838a-1e58e6d2cfec.jpg)
+![tictactoe-game page](https://user-images.githubusercontent.com/89332248/138207556-d5aa81ba-6db0-4ad8-9261-af57c14fd0b3.jpg)
