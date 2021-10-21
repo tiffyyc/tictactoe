@@ -7,6 +7,10 @@ Once user has signed up and/or signed in, user can start the game. The first pla
 
 Whichever player positions three of their symbols either horizontally, vertically or diagonally, won the game. If the game board has no more empty cells or neither of the player has position their symbols in the winning condition, the game is a tie. Then, player can restart the game or sign out the application.
 
+## Important Links
+ [TicTacToe game](https://tiffyyc.github.io/tictactoe/)
+
+
 ## Tools
 - HTML
 - CSS
@@ -14,6 +18,7 @@ Whichever player positions three of their symbols either horizontally, verticall
 - Javascript
 - jQuery
 - Bootstrap
+- Visual Studio code
 
 ## User Stories
 - As a first time player, I want to know how this game works.
@@ -25,3 +30,6 @@ Whichever player positions three of their symbols either horizontally, verticall
 - As a player, I want to sign out.
 
 ## Wireframes
+
+![wireframe-login] (https://imgur.com/G11JZKT)
+![wireframe-gamepage] (https://imgur.com/JTUIZAR)
