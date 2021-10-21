@@ -31,5 +31,8 @@ Whichever player positions three of their symbols either horizontally, verticall
 
 ## Wireframes
 
-![wireframe-login] (https://imgur.com/G11JZKT)
-![wireframe-gamepage] (https://imgur.com/JTUIZAR)
+![alt text][wireframe-login]
+[wireframe-login]: https://imgur.com/G11JZKT "wireframe-login"
+
+![alt text][wireframe-game]
+[wireframe-game]: https://imgur.com/JTUIZAR "wireframe-game"
